@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* Add styles for tabs and tab content */
+
+.tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tabs li {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    cursor: pointer;
+}
+
+.tabs li.active {
+    background-color: #f1f1f1;
+}
+
+.tabcontent {
+    display: none;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#complaints">Complaints</a></li>
+            <li><a href="#registrations">Registrations</a></li>
+            <li><a href="#companies">Companies</a></li>
+            <li><a href="#users">Users</a></li>
+            <li><a href="#statistics">Statistics</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="complaints">
+            <h2>Complaints List (Click row to view details)</h2>
+            <table>
+                </table>
+            </section>
+        <section id="registrations">
+            <h2>Student Registrations (Search by name)</h2>
+            </section>
+        <section id="companies">
+            <h2>Company Listings & Statistics</h2>
+            </section>
+        <section id="users">
+            <h2>Users (Students & Companies)</h2>
+            </section>
+        <section id="statistics">
+            <h2>Statistics</h2>
+            <ul class="tabs">
+                <li class="active" onclick="showTabContent(this, 'studentAccounts')">Student Accounts</li>
+                <li onclick="showTabContent(this, 'registrations')">Registrations</li>
+                <li onclick="showTabContent(this, 'other')">Other</li>
+            </ul>
+            <div id="studentAccounts" class="tabcontent">
+                <h2>Student Account Statistics (Sample Data)</h2>
+                <ul>
+                    <li>Total Students Registered: <span id="totalStudents">100</span></li>
+                    <li>Active Students: <span id="activeStudents">80</span></li>
+                    <li>Inactive Students: <span id="inactiveStudents">20</span></li>
+                </ul>
+            </div>
+            <div id="registrations" class="tabcontent">
+                <h2>Registration Statistics (Sample Data)</h2>
+                </div>
+            <div id="other" class="tabcontent">
+                <h2>Other Statistics (Sample Data)</h2>
+                </div>
+        </section>
+    </main>
+    <script >function showTabContent(el, contentId) {
+        // Hide all tab content
+        const tabcontent = document.querySelectorAll(".tabcontent");
+        for (let i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+      
+        // Remove active class from all tabs
+        const tabs = document.querySelectorAll(".tabs li");
+        for (let i = 0; i < tabs.length; i++) {
+          tabs[i].classList.remove("active");
+        }
+      
+        // Show the clicked tab content
+        document.getElementById(contentId).style.display = "block";
+      
+        // Mark the clicked tab as active
+        el.classList.add("active");
+      }
+      
+      // Show "Student
+      </script>
+</body>
+</html>
